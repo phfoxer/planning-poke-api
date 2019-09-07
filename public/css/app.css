@@ -1,0 +1,129 @@
+body {
+    background-color: #e9ebee;
+    overflow: hidden;  
+    height:100%;
+    background-image: url('/images/bg.png');
+}
+.content-data {
+    background-color: #343a40;
+    color: #fff;
+    padding: 1px;
+    border-radius: 0px;
+    padding: 5px;
+    margin-bottom: 15px;
+}
+.h1, h1 {
+    font-size: 16px;
+}
+.name {
+    position:absolute;
+    height:30px;
+    width:180px;
+    font-size:14px !important;
+    top:0;
+    margin-top:10px;
+}
+.nocontent {
+    bottom:0;
+    margin-bottom:-280px;
+    position:absolute;
+}
+.card-container {
+    -webkit-perspective: 500px;
+    perspective: 800px;
+}
+.card-container .username {
+    text-align: center;
+    margin: 0px;
+    position: absolute;
+    z-index: 2;
+    background-color: #fff;
+    width: 100%;
+}
+.card-container-open .card{
+-webkit-transform: rotateY( 180deg );
+transform: rotateY( 180deg );
+}
+.card-container-open > .card > .front > .username {
+    display: none;
+}
+.card-container-open > .card > .back > .username {
+    display: inline-block;
+}
+.card {
+    -webkit-transition: -webkit-transform 0.7s;
+    transition: transform 0.7s;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    position: relative;
+}
+
+
+.front, .back {
+-webkit-backface-visibility: hidden;
+backface-visibility: hidden;
+border: 5px solid #fff;
+border-radius: 6px;
+}
+.front > .data, .back > .data {
+    font-size: 7em;
+    text-align: center;
+    line-height: 230px;
+}
+
+.back {
+    -webkit-transform: rotateY( 180deg );
+    transform: rotateY( 180deg );
+    background-color: #e9ebee;
+}
+
+.card-container.disabled > .card > .front:before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    filter: grayscale(100%);
+    background-image: url("/images/background.jpg");
+    background-size: cover;
+    background-position: center;
+}
+.card-container.enabled > .card > .front:before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-image: url("/images/background.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+/*Custom Styles*/
+.cards-container {
+   display: -webkit-flex;
+   display: -webkit-box;
+   display: -ms-flexbox;
+   display: flex;
+   -webkit-flex-direction: row;
+   -webkit-box-orient: horizontal;
+   -webkit-box-direction: normal;
+       -ms-flex-direction: row;
+           flex-direction: row;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.card {
+  width: 150px;
+height: 250px;
+  margin: 10px;
+}
+
+.front, .back {
+  box-shadow: 0 1px 6px 0;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+}
